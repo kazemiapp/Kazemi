@@ -19,6 +19,16 @@
 
 ## Download
 
+### Install via AltStore (Recommended)
+
+<a href="altstore://install?url=https://github.com/kazemiapp/Kazemi/releases/download/v1.0/Kazemi.ipa" class="btn">
+  <img src="https://img.shields.io/badge/Install%20with-AltStore-FF5E5B?style=for-the-badge&logo=altstore&logoColor=white" alt="Install with AltStore" />
+</a>
+
+This will open AltStore and automatically install Kazemi.
+
+### Manual Download
+
 | Version | Download |
 |---------|----------|
 | Latest stable | [⬇ Download IPA](https://github.com/kazemiapp/Kazemi/releases/latest/download/Kazemi.ipa) |

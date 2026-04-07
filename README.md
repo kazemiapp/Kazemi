@@ -12,7 +12,6 @@
     <img src="https://img.shields.io/github/v/release/kazemiapp/Kazemi?label=latest&style=flat-square&color=orange" alt="Latest Release" />
   </a>
   <img src="https://img.shields.io/badge/platform-iOS%2016%2B%20%7C%20macOS%2013%2B-blue?style=flat-square" alt="Platform" />
-  <img src="https://img.shields.io/badge/license-MIT-green?style=flat-square" alt="License" />
 </p>
 
 ---
@@ -182,10 +181,6 @@ Your support helps cover development costs and future App Store release fees.
 </p>
 
 ---
-
-## License
-
-[MIT](LICENSE)
 
 ---
 

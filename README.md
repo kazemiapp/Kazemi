@@ -4,7 +4,7 @@
 </h1>
 
 <p align="center">
-  A powerful, extensible media browser for iOS & macOS — built around a JavaScript plugin system that puts you in control.
+  <strong>Your Personal Media Library for iOS & macOS</strong>
 </p>
 
 <p align="center">
@@ -14,13 +14,29 @@
   <img src="https://img.shields.io/badge/platform-iOS%2016%2B%20%7C%20macOS%2013%2B-blue?style=flat-square" alt="Platform" />
 </p>
 
+<p align="center">
+  <a href="https://kazemiapp.github.io/">🌐 kazemiapp.github.io</a>
+</p>
+
+---
+
+## About Kazemi
+
+Kazemi is a modern media player and library manager for iOS and macOS. Organize your personal video collection with a beautiful, intuitive interface and powerful features.
+
+Perfect for:
+- 📁 **Home videos** - Family events, celebrations, and memories
+- 🎬 **Independent films** - Your personal film collection
+- 📚 **Educational content** - Courses, tutorials, and lectures
+- 🎨 **Creative projects** - Portfolio videos and presentations
+
 ---
 
 ## Download
 
 ### Install via AltStore (Recommended)
 
-<a href="https://shorturl.at/kG62z" class="btn">
+<a href="altstore://install?url=https://github.com/kazemiapp/Kazemi/releases/download/v1.0/Kazemi.ipa">
   <img src="https://img.shields.io/badge/Install%20with-AltStore-FF5E5B?style=for-the-badge&logo=altstore&logoColor=white" alt="Install with AltStore" />
 </a>
 
@@ -44,135 +60,104 @@ Sideload the IPA using:
 
 ---
 
-## What is Kazemi?
+## Features
 
-Kazemi is a **personal media library app** for iOS and macOS. It lets you browse, track, and stream content from sources you define — using a JavaScript extension system that requires no app updates to add or modify sources.
+### 📦 Extension System
+Kazemi uses a unique JavaScript extension system that allows you to customize how content is organized and accessed. Extensions run in a secure, sandboxed environment.
 
-**Key features:**
+### 📁 Local Media Library
+Organize your video files in a simple folder structure:
 
-- 📦 **JS Extension system** — sources and extractors are `.js` files you import yourself
-- 🔍 **Browse, search & filter** — genre, type, and sort controls per source
-- 📚 **Personal library** — bookmark titles and track what you've watched
-- ⬇️ **Background downloads** — save content for offline viewing
-- 🌐 **Multi-language UI** — English, Spanish, and Chinese
-- 🎨 **Dark / Light theme** — follows system appearance
+```
+MyMedia/
+├── Family Vacation 2024/
+│   ├── day1.mp4
+│   ├── day2.mp4
+│   └── cover.jpg
+└── Birthday Party/
+    ├── ceremony.mp4
+    └── celebration.mp4
+```
+
+### 🎬 Video Playback
+- Full-screen video player with gesture controls
+- Subtitle support (VTT format)
+- Playback speed control
+- Remember last position
+
+### 📚 Library Management
+- Bookmark your favorite content
+- Track watch history
+- Organize by folders and categories
+- Automatic metadata from info.json files
+
+### 🌐 Multi-language Support
+- English
+- Spanish (Español)
+- Chinese (中文)
+
+### 🎨 Beautiful Design
+- Dark and Light themes
+- Follows system appearance
+- Smooth animations and transitions
 
 ---
 
-## How Extensions Work
+## Getting Started
 
-Extensions are plain JavaScript files. They run inside a sandboxed JavaScriptCore context — no remote code execution, no network access beyond what the extension explicitly requests.
+### 1. Install Kazemi
+Download and install using AltStore or your preferred sideloading method.
 
-There are two kinds:
+### 2. Prepare Your Media
+Organize your video files in folders. Each folder represents a "series" or collection.
 
-| Kind | File | Purpose |
-|------|------|---------|
-| **Source** | `mysource.js` | Browses a catalog, fetches titles and episode lists |
-| **Extractor** | `myextractor.js` | Resolves an embed URL to a direct stream |
+### 3. Add Optional Metadata
+Create an `info.json` file in each folder for custom titles and descriptions:
 
-### Source extension — minimal example
-
-```js
-const SOURCE = {
-  id: "mysource",
-  name: "My Source",
-  baseUrl: "https://example.com",
-  language: "en",
-  version: "1.0.0",
-  iconUrl: "https://example.com/favicon.ico",
-  contentKind: "series"
-};
-
-function fetchPopular(page) {
-  const html = http.get(SOURCE.baseUrl + "/popular?page=" + page);
-  return parseDirectory(html);
-}
-
-function fetchLatest(page) {
-  const html = http.get(SOURCE.baseUrl + "/latest?page=" + page);
-  return parseDirectory(html);
-}
-
-function fetchSearch(query, page, filters) {
-  const url = SOURCE.baseUrl + "/search?q=" + encodeURIComponent(query) + "&page=" + page;
-  const html = http.get(url);
-  return parseDirectory(html);
-}
-
-function fetchAnimeDetails(id) {
-  const html = http.get(SOURCE.baseUrl + "/" + id);
-  // parse and return { title, synopsis, type, genres, coverUrl, ... }
-}
-
-function fetchEpisodeList(id) {
-  const html = http.get(SOURCE.baseUrl + "/" + id);
-  // return [{ id, number, title, pageUrl }, ...]
-}
-
-function fetchVideoList(episodeId) {
-  const html = http.get(SOURCE.baseUrl + "/" + episodeId);
-  // return [{ quality, embed, url }, ...]
+```json
+{
+  "title": "Family Vacation 2024",
+  "synopsis": "Our amazing trip to the mountains",
+  "year": 2024
 }
 ```
 
-### Extractor extension — minimal example
-
-```js
-const EXTRACTOR = {
-  id: "myextractor",
-  name: "MyExtractor",
-  version: "1.0.0",
-  domains: ["myhost.com", "myhost.to"]
-};
-
-function extractVideos(url) {
-  const html = http.get(url);
-  const m3u8 = html.match(/(https?:\/\/[^\s"']+\.m3u8[^\s"']*)/);
-  if (!m3u8) return [];
-  return [{ url: m3u8[1], quality: "HD" }];
-}
-```
-
-### Available JS APIs
-
-Inside any extension you have access to:
-
-```js
-// HTTP
-http.get(url)                    // → string (HTML/text response)
-http.get(url, headers)           // → string (with custom headers object)
-http.post(url, body)             // → string
-http.post(url, body, headers)    // → string
-
-// Encoding
-atob(base64String)               // → decoded string
-btoa(string)                     // → base64 encoded string
-
-// Logging
-console.log(message)             // → appears in the app's debug log
-```
+### 4. Import in Kazemi
+- Open Kazemi
+- Go to Settings → Local Library
+- Select your media folder
+- Start browsing your collection!
 
 ---
 
-## Installing Extensions
+## Extension Development
 
-1. Open **Kazemi** → go to **Settings**
-2. Tap **Sources** to import a source `.js` file, or **Extractors** for an extractor
-3. Import from a local file or paste a direct URL to the `.js` file
-4. The extension is sandboxed and persisted locally — it works offline after import
+Kazemi supports JavaScript extensions for advanced users who want to customize their experience.
+
+### Source Extensions
+Create custom content sources by writing JavaScript files that define how to fetch and organize media information.
+
+### Extractor Extensions
+Build extractors to handle different video formats and streaming protocols.
+
+See our [documentation](https://kazemiapp.github.io/) for detailed extension development guides.
 
 ---
 
-## 💛 Support Kazemi
+## Support Kazemi
 
-Your support helps cover development costs and future App Store release fees.
+Kazemi is a passion project built with love. Your support directly contributes to:
+
+- 🍎 **App Store Release** — Covering the Apple Developer Program fee ($99/year) and App Store compliance costs
+- 📱 **Future Android Version** — We're planning to bring Kazemi to Android devices, and your support helps make this happen
+- 🚀 **New Features** — Funding ongoing development and improvements
 
 | Tier | Benefit |
 |------|---------|
 | Any amount | Your name in the **supporters list** inside the app |
-| $5+ | Early access to **beta builds** before public release |
+| $5+ | Early access to **beta builds** |
 | $15+ | Priority in the **feature request board** |
-| $30+ | **Lifetime Pro** — unlocks all future premium features for free |
+| $30+ | **Lifetime Pro** — all future premium features (iOS + Android) |
 
 <p align="center">
   <a href="https://ko-fi.com/kazemiapp">
@@ -182,8 +167,23 @@ Your support helps cover development costs and future App Store release fees.
 
 ---
 
+## Requirements
+
+- **iOS:** 16.0 or later
+- **macOS:** 13.0 or later
+- **Storage:** Varies based on downloaded content
+
+---
+
+## Links
+
+- 🌐 **Website:** [kazemiapp.github.io](https://kazemiapp.github.io/)
+- 📱 **Releases:** [GitHub Releases](https://github.com/kazemiapp/Kazemi/releases)
+- 💬 **Issues:** [Report a bug](https://github.com/kazemiapp/Kazemi/issues)
+- 💛 **Support:** [Ko-fi](https://ko-fi.com/kazemiapp)
+
 ---
 
 <p align="center">
-  Made with ♥ — <a href="https://ko-fi.com/kazemiapp">Support the project</a>
+  Made with ♥ by the Kazemi Team
 </p>

@@ -36,7 +36,7 @@ Perfect for:
 
 ### Install via AltStore (Recommended)
 
-<a href="https://shorturl.at/kG62z">
+<a href="altstore://install?url=https://github.com/kazemiapp/Kazemi/releases/download/v1.0/Kazemi.ipa">
   <img src="https://img.shields.io/badge/Install%20with-AltStore-FF5E5B?style=for-the-badge&logo=altstore&logoColor=white" alt="Install with AltStore" />
 </a>
 
@@ -63,7 +63,7 @@ Sideload the IPA using:
 ## Features
 
 ### 📦 Extension System
-Kazemi uses a unique JavaScript extension system that allows you to customize how content is organized and accessed. Extensions run in a secure, sandboxed environment.
+Kazemi uses a JavaScript extension system that allows the community to customize how content is organized and accessed. Extensions run inside `JavaScriptCore` with a limited host API, soft runtime limits, install traceability, and an optional strict mode for users who want tighter import rules.
 
 ### 📁 Local Media Library
 Organize your video files in a simple folder structure:
@@ -154,10 +154,9 @@ Kazemi is a passion project built with love. Your support directly contributes t
 
 | Tier | Benefit |
 |------|---------|
-| Any amount | Your name in the **supporters list** inside the app |
-| $5+ | Early access to **beta builds** |
-| $15+ | Priority in the **feature request board** |
-| $30+ | **Lifetime Pro** — all future premium features (iOS + Android) |
+| Supporter / Café ($5) | Tu nombre en el **Wall of Fame** dentro de la app (Ajustes > Acerca de) + rol/badge especial en Discord o comunidad |
+| Beta Explorer ($10) | Acceso a **TestFlight** antes que nadie + encuestas exclusivas + mención en TikTok/redes |
+| Feature Architect ($20) | Prioridad en **Feature Requests** (Roadmap) + créditos destacados con icono especial |
 
 <p align="center">
   <a href="https://ko-fi.com/kazemiapp">

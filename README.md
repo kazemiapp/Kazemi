@@ -142,30 +142,6 @@ Build extractors to handle different video formats and streaming protocols.
 
 See our [documentation](https://kazemiapp.github.io/) for detailed extension development guides.
 
----
-
-## Support Kazemi
-
-Kazemi is a passion project built with love. Your support directly contributes to:
-
-- 🍎 **App Store Release** — Covering the Apple Developer Program fee ($99/year) and App Store compliance costs
-- 📱 **Future Android Version** — We're planning to bring Kazemi to Android devices, and your support helps make this happen
-- 🚀 **New Features** — Funding ongoing development and improvements
-
-| Tier | Benefit |
-|------|---------|
-| Supporter / Café ($5) | Tu nombre en el **Wall of Fame** dentro de la app (Ajustes > Acerca de) + rol/badge especial en Discord o comunidad |
-| Beta Explorer ($10) | Acceso a **TestFlight** antes que nadie + encuestas exclusivas + mención en TikTok/redes |
-| Feature Architect ($20) | Prioridad en **Feature Requests** (Roadmap) + créditos destacados con icono especial |
-
-<p align="center">
-  <a href="https://ko-fi.com/kazemiapp">
-    <img src="https://img.shields.io/badge/Ko--fi-Support%20Kazemi-FF5E5B?style=for-the-badge&logo=ko-fi&logoColor=white" />
-  </a>
-</p>
-
----
-
 ## Requirements
 
 - **iOS:** 16.0 or later
@@ -179,7 +155,6 @@ Kazemi is a passion project built with love. Your support directly contributes t
 - 🌐 **Website:** [kazemiapp.github.io](https://kazemiapp.github.io/)
 - 📱 **Releases:** [GitHub Releases](https://github.com/kazemiapp/Kazemi/releases)
 - 💬 **Issues:** [Report a bug](https://github.com/kazemiapp/Kazemi/issues)
-- 💛 **Support:** [Ko-fi](https://ko-fi.com/kazemiapp)
 
 ---
 

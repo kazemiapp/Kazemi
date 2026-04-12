@@ -34,7 +34,7 @@ Perfect for:
 
 ## Download
 
-### Install via AltStore (Recommended)
+### Install via AltStore (Alpha)
 
 <a href="altstore://install?url=https://github.com/kazemiapp/Kazemi/releases/download/v1.0/Kazemi.ipa">
   <img src="https://img.shields.io/badge/Install%20with-AltStore-FF5E5B?style=for-the-badge&logo=altstore&logoColor=white" alt="Install with AltStore" />
